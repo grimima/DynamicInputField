@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add Input Boxes Dynamically</title>
+<style>
+  .input-container {
+    margin-bottom: 10px;
+  }
+</style>
+</head>
+<body>
+<h1>Add Input Boxes Dynamically</h1>
+<form id="dynamic-form" >
+  <div class="input-container">
+    <input type="text" name="input[]" placeholder="Enter something">
+    <input type="text" name="inputattribute[]" placeholder="Enter attribute">
+    <button type="button" class="remove-button">Remove</button>
+  </div>
+  <button type="button" id="add-button">Add Input</button>
+  <button type="button">Submit</button>
+</form>
+
+<script>
+  
+document.addEventListener('DOMContentLoaded', function() {
+  const addButton = document.getElementById('add-button');
+  const form = document.getElementById('dynamic-form');
+  
+  addButton.addEventListener('click', function() {
+    const inputContainer = document.createElement('div');
+    inputContainer.className = 'input-container';
+    
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.name = 'input[]';
+    input.placeholder = 'Enter something';
+ 
+    const inputattribute = document.createElement('inputattribute');
+    inputattribute.type = 'text';
+    inputattribute.name = 'inputattribute[]';
+    inputattribute.placeholder = 'Enter attribute';
+    
+    
+    const removeButton = document.createElement('button');
+    removeButton.type = 'button';
+    removeButton.className = 'remove-button';
+    removeButton.textContent = 'Remove';
+    removeButton.addEventListener('click', function() {
+      form.removeChild(inputContainer);
+    });
+    
+    inputContainer.appendChild(input);
+    inputContainer.appendChild(inputattribute)
+    inputContainer.appendChild(removeButton);
+    form.insertBefore(inputContainer, addButton);
+  });
+  addButton.addEventListener('click', function() {
+    const inputContainer = document.createElement('div');
+    inputContainer.className = 'input-container';
+    
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.name = 'input[]';
+    input.placeholder = 'Enter something';
+ 
+    const inputattribute = document.createElement('inputattribute');
+    inputattribute.type = 'text';
+    inputattribute.name = 'inputattribute[]';
+    inputattribute.placeholder = 'Enter attribute';
+    
+    
+    const removeButton = document.createElement('button');
+    removeButton.type = 'button';
+    removeButton.className = 'remove-button';
+    removeButton.textContent = 'Remove';
+    removeButton.addEventListener('click', function() {
+      form.removeChild(inputContainer);
+    });
+    
+    inputContainer.appendChild(input);
+    inputContainer.appendChild(inputattribute);
+    inputContainer.appendChild(removeButton);
+    form.insertBefore(inputContainer, addButton);
+  });
+});
+
+</script>
+</body>
+</html>
